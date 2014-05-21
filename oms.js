@@ -111,7 +111,7 @@ this['OverlappingMarkerSpiderfier'] = (function() {
     }
     marker['_oms'] = true;
     listenerRefs = [
-      ge.addListener(marker, p['event'], (function(_this) {
+      ge.addListener(marker, this['event'], (function(_this) {
         return function(event) {
           return _this.spiderListener(marker, event);
         };

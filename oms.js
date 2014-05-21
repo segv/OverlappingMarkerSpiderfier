@@ -242,12 +242,15 @@ this['OverlappingMarkerSpiderfier'] = (function() {
   };
 
   p.spiderListener = function(marker, event) {
-    var clear, m, mPt, markerPt, markerSpiderfied, nDist, nearbyMarkerData, nonNearbyMarkers, pxSq, _j, _len1, _ref1;
+    var $this, clear, m, mPt, markerPt, markerSpiderfied, nDist, nearbyMarkerData, nonNearbyMarkers, pxSq, _j, _len1, _ref1;
     markerSpiderfied = marker['_omsData'] != null;
     if (!(markerSpiderfied && this['keepSpiderfied'])) {
       if (this['event'] === 'mouseover') {
+        $this = this;
+        clear = function() {
+          return $this['unspiderfy']();
+        };
         window.clearTimeout(p.timeout);
-        clear = this['unspiderfy']();
         p.timeout = setTimeout(clear, 3000);
       } else {
         this['unspiderfy']();

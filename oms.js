@@ -53,6 +53,8 @@ this['OverlappingMarkerSpiderfier'] = (function() {
 
   p['highlightedLegZIndex'] = 20;
 
+  p['event'] = 'click';
+
   p['legWeight'] = 1.5;
 
   p['legColors'] = {
@@ -109,7 +111,7 @@ this['OverlappingMarkerSpiderfier'] = (function() {
     }
     marker['_oms'] = true;
     listenerRefs = [
-      ge.addListener(marker, 'click', (function(_this) {
+      ge.addListener(marker, p['event'], (function(_this) {
         return function(event) {
           return _this.spiderListener(marker, event);
         };

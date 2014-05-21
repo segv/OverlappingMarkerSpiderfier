@@ -242,10 +242,16 @@ this['OverlappingMarkerSpiderfier'] = (function() {
   };
 
   p.spiderListener = function(marker, event) {
-    var m, mPt, markerPt, markerSpiderfied, nDist, nearbyMarkerData, nonNearbyMarkers, pxSq, _j, _len1, _ref1;
+    var clear, m, mPt, markerPt, markerSpiderfied, nDist, nearbyMarkerData, nonNearbyMarkers, pxSq, _j, _len1, _ref1;
     markerSpiderfied = marker['_omsData'] != null;
     if (!(markerSpiderfied && this['keepSpiderfied'])) {
-      this['unspiderfy']();
+      if (this['event'] === 'mouseover') {
+        window.clearTimeout(p.timeout);
+        clear = this['unspiderfy']();
+        p.timeout = setTimeout(clear, 3000);
+      } else {
+        this['unspiderfy']();
+      }
     }
     if (markerSpiderfied || this.map.getStreetView().getVisible() || this.map.getMapTypeId() === 'GoogleEarthAPI') {
       return this.trigger('click', marker, event);

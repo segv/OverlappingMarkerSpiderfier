@@ -55,6 +55,8 @@ this['OverlappingMarkerSpiderfier'] = (function() {
 
   p['event'] = 'click';
 
+  p['minZoomLevel'] = false;
+
   p['legWeight'] = 1.5;
 
   p['legColors'] = {
@@ -400,6 +402,9 @@ this['OverlappingMarkerSpiderfier'] = (function() {
 
   p.spiderfy = function(markerData, nonNearbyMarkers) {
     var bodyPt, footLl, footPt, footPts, highlightListenerFuncs, leg, marker, md, nearestMarkerDatum, numFeet, spiderfiedMarkers;
+    if (this['minZoomLevel'] && this.map.getZoom() < this['minZoomLevel']) {
+      return false;
+    }
     this.spiderfying = true;
     numFeet = markerData.length;
     bodyPt = this.ptAverage((function() {

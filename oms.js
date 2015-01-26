@@ -68,7 +68,7 @@ this['OverlappingMarkerSpiderfier'] = (function() {
 
   lcH = p['legColors']['highlighted'];
 
-  _Class.initializeGoogleMaps = function(google) {
+  _Class['initializeGoogleMaps'] = function(google) {
     gm = google.maps;
     ge = gm.event;
     mt = gm.MapTypeId;

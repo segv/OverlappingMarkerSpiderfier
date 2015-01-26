@@ -47,7 +47,7 @@ class @['OverlappingMarkerSpiderfier']
   lcU = p['legColors']['usual']
   lcH = p['legColors']['highlighted']
 
-  @initializeGoogleMaps = (google) ->
+  @['initializeGoogleMaps'] = (google) ->
     gm = google.maps
     ge = gm.event
     mt = gm.MapTypeId

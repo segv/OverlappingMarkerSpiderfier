@@ -6,7 +6,7 @@ var closureCompiler = require('gulp-closure-compiler');
 gulp.task('default', function() {
   gulp.src('./lib/*.coffee')
     .pipe(coffee({bare: true}).on('error', gutil.log))
-    .pipe(gulp.dest('.'))
+    .pipe(gulp.dest('dist'))
     .pipe(closureCompiler({
       compilerPath: 'bower_components/closure-compiler/compiler.jar',
       fileName: 'oms.min.js',
@@ -19,6 +19,6 @@ gulp.task('default', function() {
         warning_level: 'QUIET'
       }
     }))
-    .pipe(gulp.dest('.'))
+    .pipe(gulp.dest('dist'))
 
 });

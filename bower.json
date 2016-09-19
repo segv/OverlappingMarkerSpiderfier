@@ -12,10 +12,10 @@
     "bower_components"
   ],
 
-  "main": "oms.min.js",
-  
+  "main": "dist/oms.min.js",
+
   "devDependencies": {
     "closure-compiler": "https://closure-compiler.googlecode.com/files/compiler-20131014.zip",
-    "google-maps-externs": "https://github.com/yagoferrer/google-maps-closure-externs.git#3.7"
+    "google-maps-externs": "https://github.com/nmccready/google-maps-closure-externs.git#3.20"
   }
 }
